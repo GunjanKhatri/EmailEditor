@@ -1,0 +1,30 @@
+﻿@model EmailEditor.Models.RichTextEditorViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Index", "EmailTemplateEditor", FormMethod.Post))
+{
+    @Html.DropDownListFor()
+
+    @Html.LabelFor(y => y.Subject)
+    @Html.TextBoxFor(y => y.Subject)
+    <br/>
+    @Html.LabelFor(y => y.Message)
+    @Html.TextAreaFor(y => y.Message, new { @id = "Message" })
+
+
+    <input type="submit" value="save" />
+}
+
+<script>
+
+    $('#Message').summernote({
+            placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+</script>
